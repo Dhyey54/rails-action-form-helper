@@ -1,0 +1,7 @@
+<h1 class="text-center m-3">New User</h1>
+
+<%= render 'shared/form', user: @user, url: sign_up_users_path %>
+
+<div class="text-center my-2">
+  <%= link_to "Login", login_users_path, class: "btn btn-info" %>
+</div>

@@ -1,0 +1,28 @@
+<h1 class="text-center m-4 h1">Users</h1>
+
+<div class="row justify-content-center">
+  <div class="col-md-10">
+    <table class="table table-bordered table-striped table-hover text-center">
+      <tr>
+        <th>Index</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Profile Photo</th>
+        <th>Action</th>
+      </tr>
+      <% @users.each_with_index do |user, inx| %>
+        <tr>
+          <td><%= inx+1 %></td>
+          <td><%= user.username %></td>
+          <td><%= user.email %></td>
+          <td><%= image_tag user.profile_photo_url, alt: 'profile_photo', size: "50x50" %></td>
+          <td><% if user.username == current_user.username %>
+            <%= link_to 'Edit', edit_user_path(user), class: "text-decoration-none text-dark btn btn-warning me-2" %>
+            <%= link_to "Destroy", user_path(user), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "text-decoration-none text-light btn btn-danger" %>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
