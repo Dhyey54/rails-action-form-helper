@@ -1,4 +1,4 @@
-class RegistrationsController < UserController
+class RegistrationsController < UsersController
   before_action :redirect_if_authenticated, only: [:create, :new]
 
   def new
